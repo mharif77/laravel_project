@@ -26,6 +26,13 @@ Route::get('/student', [StudentController::class, 'index'])->name('student.index
 Route::get('/student/create', [StudentController::class, 'create']);
 Route::post('/student/store', [StudentController::class, 'store'])->name('student.store');
 
+
+Route::post('/student/delete/{id}', [StudentController::class, 'destroy'])->name('student.destroy');
+
+Route::get('/student/edit/{id}', [StudentController::class, 'edit'])->name('student.edit');
+
+Route::post('/student/update/{id}', [StudentController::class, 'update'])->name('student.update');
+
 // Route::get('/home', function () {
 //     return view('home');
 // });

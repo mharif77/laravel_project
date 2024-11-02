@@ -27,4 +27,27 @@ class StudentController extends Controller
         $student->save();
        return redirect(route('student.index'))->with('msg','successfully added');
     }
+
+    function destroy(Request $request){
+        $student = Student::find($request->id);
+        // echo $request->id;
+        $student->delete();
+        return redirect(route('student.index'))->with('msg','successfully Deleted');
+
+    }
+
+    function edit(Request $request){
+      $student =  Student::find($request->id);
+        return view('student/edit',['student'=> $student]);
+    }
+
+    function update(Request $request){
+        $item =  Student::find($request->id);
+        $item ['name'] = $request->input('name');
+        $item ['email'] = $request->input('email');
+        $item ['phone'] = $request->input('phone');
+        $item->update();
+        return redirect(route('student.index'))->with('msg','successfully Updated');
+    //    return "Hello";
+    }
 }
