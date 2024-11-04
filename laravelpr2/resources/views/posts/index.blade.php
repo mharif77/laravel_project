@@ -31,13 +31,17 @@
    <td>{{$post->name}}</td>
    <td><img src="/images/{{$post->image}}" alt="" width="100"></td>
    <td>{{$post->details}}</td>
-   <td>Edit 
+   <td>
+
+   <a href="{{route('posts.show', $post->id)}}" class="btn btn-secondary">Show</a>
+
+   <a href="{{route('posts.edit', $post->id)}}" class="btn btn-info">Edit</a>
     
    
    <form action="{{route('posts.destroy',$post->id)}}" method="post">
     @csrf
     @method ('delete')
-    <button type="submit" class="btn btn-secondary">Delete</button>
+    <button type="submit" class="btn btn-danger">Delete</button>
    </form>
    
    </td>

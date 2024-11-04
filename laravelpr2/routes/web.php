@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,5 +19,7 @@ use Illuminate\Support\Facades\Route;
 Route::resource('/posts', PostController::class);
 
 // Route::get('/', function () {
-//     return view('posts.index');
+//     return view('index');
 // });
+
+Route::get('/' , [HomeController::class, 'index']);
